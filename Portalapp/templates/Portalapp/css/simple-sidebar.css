@@ -4,8 +4,38 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/master/LICENSE)
  */
 
+ @font-face {
+  font-family: 'bnr'; 
+  src: url('../Fonts/BebasNeue-Regular.ttf'); 
+}
+
 body {
   overflow-x: hidden;
+}
+
+#page-content-wrapper{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background-color: rgb(212, 19, 19);
+}
+
+#mainhead{
+  width: 100%;
+  height: 50vh;
+  background-color: rgb(56, 17, 17);
+  font-family: 'bnr';
+  text-align: center;
+  color: #fff;
+}
+
+#headingtext{
+  font-family: 'bnr';
+  letter-spacing: 0.25vh;
+  font-size: 825%;
 }
 
 #menu-toggle{
@@ -66,6 +96,17 @@ body {
   font-size: 110%; 
 }
 
+#posd{
+  bottom: 3px;
+  position: absolute;
+}
+
+#sidetitleend{
+  font-size: 70%;
+  text-align: center;
+
+}
+
 .sidebar-nav {
   position: absolute;
   top: 0;
@@ -84,6 +125,8 @@ body {
   display: block;
   text-decoration: none;
   color: #999999;
+  font-size: 110%;
+  font-weight: 110;
 }
 
 .sidebar-nav li a:hover {
