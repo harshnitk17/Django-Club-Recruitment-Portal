@@ -8,3 +8,6 @@ class Clubinfo(models.Model):
 	def __str__(self):
 		return self.club_text
 
+
+    
+
