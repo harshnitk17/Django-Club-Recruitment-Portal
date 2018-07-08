@@ -14,5 +14,6 @@ urlpatterns = [
 	path('iste/', views.iste, name='iste'),
 	path('ie/', views.ie, name='ie'),
 	path('iet/', views.iet, name='iet'),
+	path('confirmation/', views.confirmation, name='confirmation'),
 
 ]

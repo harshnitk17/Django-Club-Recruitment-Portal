@@ -73,6 +73,87 @@
         <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">CHECK OTHER CLUBS</a>
         
         </div>
+		<!-- FORM STARTS HERE -->
+		{% block content %}
+
+    <h2>{{club}} Recriutment Form</h2>
+
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {{ form.non_field_errors }}
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <th><label for="id_name">Enter Name:</label></th>
+                <td>
+                    {{ form.name.errors }}
+                    <input type="text" name="name" required maxlength="100" id="id_name" />
+                </td>
+            </tr>
+            <tr>
+                <th><label for="id_roll_number">Enter Roll Number:</label></th>
+                <td>
+                    {{ form.roll_number.errors }}
+                    <input type="text" name="roll_number" required maxlength="100" id="id_roll_number" />
+                </td>
+            </tr>
+            <tr>
+                <th><label for="id_email">Enter Email:</label></th>
+                <td>
+                    {{ form.email.errors }}
+                    <input type="email" name="email" required maxlength="100" id="id_email" />
+                </td>
+            </tr>
+            <tr>
+                <th><label for="id_phone">Enter Phone Number:</label></th>
+                <td>
+                    {{ form.phone.errors }}
+                    <input type="text" name="phone" required maxlength="100" id="id_phone" />
+                </td>
+            </tr>
+			<tr>
+                <th><label for="id_phone">Enter Branch:</label></th>
+                <td>
+                    {{ form.branch.errors }}
+                    <input type="text" name="branch" required maxlength="100" id="id_branch" />
+                </td>
+            </tr>
+			<tr>
+                <th><label for="id_address">Enter Address:</label></th>
+                <td>
+                    {{ form.address.errors }}
+                    <input type="text" name="address" required maxlength="1000" id="id_address" />
+                </td>
+            </tr>
+			<tr>
+                <th><label for="id_phone">Enter Date:</label></th>
+                <td>
+                    {{ form.date.errors }}
+                    <input type="text" name="date" required maxlength="100" id="id_date" />
+                </td>
+            </tr>
+            <tr>
+			<tr>
+                <th><label for="id_info">Why you want to join the club and your achievments??:</label></th>
+                <td>
+                    {{ form.info.errors }}
+                    <input type="text" name="info" required maxlength="100" id="id_info" />
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit"></td>
+            </tr>
+        </table>
+    </form>
+
+{% endblock %}
 <!-- Bootstrap core JavaScript -->
     <script src="{%static 'Portalapp/vendor/jquery/jquery.min.js' %}" ></script>
     <script src="{% static 'Portalapp/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
