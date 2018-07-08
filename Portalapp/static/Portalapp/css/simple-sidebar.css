@@ -8,6 +8,14 @@
   font-family: 'bnr'; 
   src: url('../Fonts/BebasNeue-Regular.ttf'); 
 }
+@font-face {
+  font-family: 'apply'; 
+  src: url('../Fonts/KeepCalm-Medium.ttf'); 
+}
+@font-face {
+  font-family: 'geo'; 
+  src: url('../Fonts/GeosansLight.ttf'); 
+}
 
 body {
   overflow-x: hidden;
@@ -19,16 +27,55 @@ body {
   padding: 0;
   top: 0;
   left: 0;
-  height: 100vh;
-  background-color: rgb(212, 19, 19);
+  height: 150vh;
+  background-color: rgb(0, 0, 0);
 }
 
 #mainhead{
   width: 100%;
   height: 50vh;
-  background-color: rgb(56, 17, 17);
+  background-color: rgb(151, 2, 2);
   font-family: 'bnr';
   text-align: center;
+  color: #fff;
+}
+
+
+#gi{
+  background-image: url(../images/achievement-agreement-arms-1068523.jpg);
+  height: 50vh;
+  background-size: auto; 
+  background-repeat: no-repeat;
+  background-position: center;
+  width:175vh;
+  vertical-align: middle;
+  transition: all 1s ease-in-out;
+  
+}
+
+
+#gi:hover{
+  background-image: url(../images/achievement-agreement-arms-10685231.jpg);
+  transition: all 1s ease-in-out;
+}
+
+#appear{
+  opacity: 0;
+  align-self: center;
+  vertical-align: middle;
+  transition: all 1s ease-in-out;
+}
+
+#gi:hover #appear{
+  opacity:1;
+  transition: all 1s ease-in-out;
+  align-self: center;
+}
+
+#gitext{
+  font-family: 'geo';
+  letter-spacing: 0.25vh;
+  font-size: 1000%;
   color: #fff;
 }
 
@@ -39,12 +86,15 @@ body {
 }
 
 #menu-toggle{
-  font-size: 110%;
-  background-color: rgb(207, 32, 32);
+  font-size: 220%;
+  background-color: rgb(204, 0, 0);
+  border-style: solid;
+  font-family: 'apply';
+  letter-spacing: 0.25vh;
 }
 #menu-toggle:hover{
-  font-size: 125%;
-  background-color: rgb(223, 61, 61);
+  font-size: 221%;
+  background-color: rgb(255, 255, 255);
 }
 
 #wrapper {
@@ -93,7 +143,7 @@ body {
 /* Sidebar Styles */
 
 #sidetitle {
-  font-size: 110%; 
+  font-size: 120%; 
 }
 
 #posd{
