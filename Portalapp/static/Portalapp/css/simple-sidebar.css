@@ -17,6 +17,11 @@
   src: url('../Fonts/GeosansLight.ttf'); 
 }
 
+@font-face {
+  font-family: 'detail'; 
+  src: url('../Fonts/eagle-normal.ttf'); 
+}
+
 body {
   overflow-x: hidden;
 }
@@ -31,20 +36,58 @@ body {
   background-color: rgb(0, 0, 0);
 }
 
+
 #mainhead{
   width: 100%;
-  height: 50vh;
+  height: 17vh;
   background-color: rgb(151, 2, 2);
   font-family: 'bnr';
   text-align: center;
   color: #fff;
 }
 
+#detailhead{
+  font-family: 'bnr';
+  letter-spacing: 0.20vh;
+  font-size: 700%;
+}
+
+#detailp{
+  font-size: 150%;
+  font-family: 'detail';
+}
+
+#detailp:hover{
+  color: #fff;
+  transition: all 0.5s ease-in-out;
+}
+
+#details{
+  color: rgb(209, 209, 209);
+}
+
+#details:hover{
+  color: #fff;
+  transition: all 0.5s ease-in-out;
+}
+
+#listd{
+  font-family: 'detail';
+  font-size: 150%;
+  color: rgb(231, 231, 231);
+  text-align: left;
+}
+
+#listd:hover{
+  color: #fff;
+  transition: all 0.5s ease-in-out;
+}
+
 
 #gi{
   background-image: url(../images/achievement-agreement-arms-1068523.jpg);
-  height: 50vh;
-  background-size: auto; 
+  height: 40vh;
+  position: relative;
   background-repeat: no-repeat;
   background-position: center;
   width:175vh;
@@ -82,7 +125,7 @@ body {
 #headingtext{
   font-family: 'bnr';
   letter-spacing: 0.25vh;
-  font-size: 825%;
+  font-size: 900%;
 }
 
 #menu-toggle{
