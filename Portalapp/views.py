@@ -21,9 +21,9 @@ def ieee(request):
         if f.is_valid():
             entry = f.save()
             return redirect('Portalapp:confirmation')
-
     else:
         f = ApplicationForm()
+    
     template = loader.get_template('Portalapp/sub/club.html')
     context = {'club':club_name,'Clubinformation':club_info,'form':f,}
     return HttpResponse(template.render(context, request))

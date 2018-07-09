@@ -33,7 +33,7 @@ class ApplicationForm(forms.Form):
             if i.isalpha()==False:
                 count=count+1
         if count>0:
-            raise ValidationError("name can only contain alphabets")
+            raise ValidationError("Name can only contain alphabets")
         return name
 	
     def clean_branch(self):
@@ -43,7 +43,7 @@ class ApplicationForm(forms.Form):
             if i.isalpha()==False:
                 count=count+1
         if count>0:
-            raise ValidationError("branch can only contain alphabets")
+            raise ValidationError("Branch can only contain alphabets")
         return branch
 		
     def clean_roll_number(self):
@@ -53,7 +53,7 @@ class ApplicationForm(forms.Form):
             if i.isalnum()==False :
                 count=count+1
         if count>0 or len(roll_number)==0:
-            raise ValidationError("roll number can only contain alphabets and numbers and it cannot be left empty")
+            raise ValidationError("Roll number can only contain alphabets and numbers and it cannot be left empty")
         return roll_number
 	
     def clean_date(self):
@@ -63,7 +63,7 @@ class ApplicationForm(forms.Form):
             if i.isalpha()==True:
                 count=count+1
         if count>0:
-            raise ValidationError("date cannot contain alphabets")
+            raise ValidationError("Date cannot contain alphabets")
         return date
 		
     def clean_phone(self):
