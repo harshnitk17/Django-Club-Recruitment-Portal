@@ -24,11 +24,30 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<style>
+input,textarea {
+    width: 150%;
+	padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+	border-radius: 8px;
+}
+label {
+font-family: Impact;
+font-size: 150%;
+color: #dee5ef;
+}
+input:focus {
+    background-color: lightblue;
+}
+#one:hover {
+background-color: lightblue;
+}
+</style>
 
 </head>
 
 <body>
-
     <div id="wrapper">
 
         <!-- Sidebar -->
@@ -69,15 +88,19 @@
 			<h1>{{club}}</h1>
 			<p>{{Clubinformation}}</p>
             </div>
-        </div>
-        <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">CHECK OTHER CLUBS</a>
-        
-        </div>
-		<!-- FORM STARTS HERE -->
+			
+					<!-- FORM STARTS HERE -->
 		{% block content %}
 
-    <h2>{{club}} Recriutment Form</h2>
-
+    <h5 id="headingtext" style="text-align:center;background-color:red" ><strong>{{club}} Recruitment Form</strong></h5>
+	<div class="container-fluid"  style="background-color:#383a3d">
+	<div class="col-lg-12">
+	<div class="col-lg-3"><br><br><br><br>
+	<div style="background-color:#383a3d;color:red;font-size:140%">
+      
+      <b>{{ form.non_field_errors }}{{ form.name.errors }}{{ form.roll_number.errors }}{{ form.email.errors }}{{ form.phone.errors }}{{ form.branch.errors }}{{ form.address.errors }}{{ form.date.errors }}{{ form.info.errors }}</b></div>
+    </div>
+	<div class="col-lg-6">
     {% if messages %}
         <ul class="messages">
             {% for message in messages %}
@@ -85,73 +108,83 @@
             {% endfor %}
         </ul>
     {% endif %}
-    {{ form.non_field_errors }}
+    
     <form action="" method="post">
         {% csrf_token %}
         <table>
             <tr>
                 <th><label for="id_name">Enter Name:</label></th>
                 <td>
-                    {{ form.name.errors }}
-                    <input type="text" name="name" required maxlength="100" id="id_name" />
+                    
+                    <input type="text" name="name" required maxlength="100" id="id_name" autofocus autocomplete="off" />
                 </td>
             </tr>
             <tr>
                 <th><label for="id_roll_number">Enter Roll Number:</label></th>
                 <td>
-                    {{ form.roll_number.errors }}
-                    <input type="text" name="roll_number" required maxlength="100" id="id_roll_number" />
+                    
+                    <input type="text" name="roll_number" required maxlength="100" id="id_roll_number" autocomplete="off"/>
                 </td>
             </tr>
             <tr>
                 <th><label for="id_email">Enter Email:</label></th>
                 <td>
-                    {{ form.email.errors }}
-                    <input type="email" name="email" required maxlength="100" id="id_email" />
+                    
+                    <input type="email" name="email" required maxlength="100" id="id_email" autocomplete="off" />
                 </td>
             </tr>
             <tr>
                 <th><label for="id_phone">Enter Phone Number:</label></th>
                 <td>
-                    {{ form.phone.errors }}
-                    <input type="text" name="phone" required maxlength="100" id="id_phone" />
+                    
+                    <input type="text" name="phone" required maxlength="100" id="id_phone" autocomplete="off" />
                 </td>
             </tr>
 			<tr>
                 <th><label for="id_phone">Enter Branch:</label></th>
                 <td>
-                    {{ form.branch.errors }}
-                    <input type="text" name="branch" required maxlength="100" id="id_branch" />
+                    
+                    <input type="text" name="branch" required maxlength="100" id="id_branch" autocomplete="off"/>
                 </td>
             </tr>
 			<tr>
                 <th><label for="id_address">Enter Address:</label></th>
                 <td>
-                    {{ form.address.errors }}
-                    <input type="text" name="address" required maxlength="1000" id="id_address" />
+                    
+                    <input type="text" name="address" required maxlength="1000" id="id_address" autocomplete="off"/>
                 </td>
             </tr>
 			<tr>
                 <th><label for="id_phone">Enter Date:</label></th>
                 <td>
-                    {{ form.date.errors }}
-                    <input type="text" name="date" required maxlength="100" id="id_date" />
+                    
+                    <input type="date" name="date" required maxlength="100" id="id_date" autocomplete="off"/>
                 </td>
             </tr>
             <tr>
 			<tr>
                 <th><label for="id_info">Why you want to join the club and your achievments??:</label></th>
                 <td>
-                    {{ form.info.errors }}
-                    <input type="text" name="info" required maxlength="100" id="id_info" />
+                    
+                    <textarea type="text" name="info" required maxlength="1000" id="id_info" autocomplete="off"></textarea>
                 </td>
             </tr>
             <tr>
                 <td></td>
-                <td><input type="submit"></td>
+                <td><input type="submit" id="one" ></td>
             </tr>
         </table>
-    </form>
+    </form><br><br>
+		<center><a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">CHECK OTHER CLUBS</a>	</center>
+        </div>
+        
+        
+		<div class="col-lg-3"></div>
+		</div>
+		</div>
+		</div>
+		
+
 
 {% endblock %}
 <!-- Bootstrap core JavaScript -->
