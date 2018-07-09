@@ -16,6 +16,7 @@ def index(request):
 def ieee(request):
     club_name="IEEE"
     club_info = get_object_or_404(Clubinfo, pk=1).club_text
+    ''' club_logo= get_object_or_404(Clubinfo, pk=1).image'''
     if request.POST:
         f = ApplicationForm(request.POST)
         if f.is_valid():
@@ -98,6 +99,6 @@ def iet(request):
     context = {'club':club_name,'Clubinformation':club_info,'form':f,}
     return HttpResponse(template.render(context, request))
 def confirmation(request):
-    return HttpResponse('form filled')	
-	
-
+    template = loader.get_template('Portalapp/sub/information.html')
+    context = {}
+    return HttpResponse(template.render(context, request))
