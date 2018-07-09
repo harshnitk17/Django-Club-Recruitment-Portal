@@ -43,16 +43,17 @@ input:focus {
 #one:hover {
 background-color: lightblue;
 }
+
 </style>
 
 </head>
 
-<body>
+<body >
     <div id="wrapper">
 
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
+            <ul class="sidebar-nav" id="listd">
                 <li class="sidebar-brand">
                         <a href="{% url 'Portalapp:index' %}"id = "sidetitle">
                                 NITK Club Recruitment
@@ -82,15 +83,16 @@ background-color: lightblue;
                    
             </ul>
         </div>
-		<div id="page-content-wrapper">
+		<div id="page-content-wrapper" >
             <div class="container-fluid">
 			<!-- club information will go here -->
-			<h1>{{club}}</h1>
-			<p>{{Clubinformation}}</p>
+			<p style="text-align:center;font-size:50px;color:white"><b><u>{{club}}</u></b></p>
+			<img src="{{club_logo}}" class="img-responsive" alt="Club logo">
+			<p style="text-align:center;font-size:25px;color:white">{{Clubinformation}}</p>
             </div>
 			
 					<!-- FORM STARTS HERE -->
-		{% block content %}
+		
 
     <h5 id="headingtext" style="text-align:center;background-color:red" ><strong>{{club}} Recruitment Form</strong></h5>
 	<div class="container-fluid"  style="background-color:#383a3d">
@@ -186,7 +188,7 @@ background-color: lightblue;
 		
 
 
-{% endblock %}
+
 <!-- Bootstrap core JavaScript -->
     <script src="{%static 'Portalapp/vendor/jquery/jquery.min.js' %}" ></script>
     <script src="{% static 'Portalapp/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
@@ -197,7 +199,7 @@ background-color: lightblue;
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
-    </script>
+    </script></div>
 
 </body>
 
