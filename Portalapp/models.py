@@ -5,6 +5,7 @@ class Clubinfo(models.Model):
 	
 	club_text = models.CharField(max_length=2000)
 	club_name= models.CharField(max_length=100)
+	image=models.CharField(max_length=200,blank=True)
 	def __str__(self):
 		return self.club_text
 		
