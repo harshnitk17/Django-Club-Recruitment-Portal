@@ -163,6 +163,17 @@ body {
   transition: all 0.5s ease-in-out;
 }
 
+#clubapply{
+  font-family: 'detail';
+  color: #e0e0e0;
+  font-size: 120%;
+}
+
+#clubapply:hover{
+  color: #ffffff;
+  transition: all 1s ease-in-out;
+}
+
 #menu-toggle{
   font-size: 220%;
   background-color: rgb(204, 0, 0);
