@@ -18,6 +18,15 @@ class form(models.Model):
     email= models.EmailField()
     phone= models.CharField(max_length=100)
     address= models.CharField(max_length=1000)
+    club=models.CharField(max_length=100,null=True)
+    approval=models.IntegerField(default=0)
+class admin(models.Model):
+    user_name = models.CharField(max_length=100)
+    password = models.CharField(max_length=100)
+    club_name = models.CharField(max_length=100)
+	
+class form2(models.Model):
+    approval=models.CharField(max_length=10)
 
 
     

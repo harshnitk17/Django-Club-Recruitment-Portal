@@ -1,0 +1,236 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" style="background-color: black">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{{club_name}} Admin</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'Portalapp/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'Portalapp/css/simple-sidebar.css' %}" rel="stylesheet">
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<style>
+p {
+color:white;
+font-size:20px;
+
+}
+</style>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<body >
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav" id="listd">
+                <li class="sidebar-brand">
+                        <a href="{% url 'Portalapp:index' %}"id = "sidetitle">
+                                NITK Club Recruitment
+                            </a>
+                </li>
+                <li>
+                    <a href="{% url 'Portalapp:index' %}">Home</a>
+                </li>
+                <li>
+                    <a href="{% url 'Portalapp:ieee' %}">IEEE</a>
+                </li>
+                <li>
+                    <a href="{% url 'Portalapp:acm' %}">ACM</a>
+                </li>
+                <li>
+                    <a href="{% url 'Portalapp:rotaract' %}">Rotaract</a>
+                </li>
+                <li>
+                    <a href="{% url 'Portalapp:iste' %}">ISTE</a>
+                </li>
+                <li>
+                    <a href="{% url 'Portalapp:ie' %}">IE</a>
+                </li>
+                <li>
+                    <a href ="{% url 'Portalapp:iet' %}">IET</a>
+                </li>
+                   
+            </ul>
+        </div>
+		<div id="page-content-wrapper" >
+            <div class="container-fluid">
+			<!-- club information will go here -->
+			
+            <center><h1 id="headingtextclub">Welcome Admin :  {{club_name}}</h1></center>
+            
+                <hr><br>
+				<h3 style="color:blue">New Joining Requests:</h3><br>
+            <div class="container-fluid"  style="background-color:#383a3d">   
+			<div class="col-lg-12"><div class="col-lg-1"></div>
+			
+                    <div class="col-lg-1"><h4 style="color:red;padding-left:35px;"><b><u>Name</u></b></h4>
+					{% for names in name %}
+					<p>{{forloop.counter}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{names}}</p>{% endfor %}</div>
+					
+					<div class="col-lg-1"><h4 style="color:red"><b><u>Branch</u></b></h4>
+					{% for branches in branch %}
+					<p>{{branches}}</p>{% endfor %}</div>
+					
+					<div class="col-lg-1"><h4 style="color:red"><b><u>DOB</u></b></h4>
+					{% for dob in date %}
+					<p>{{dob}}</p>{% endfor %}</div>
+					
+					<div class="col-lg-1"><h4 style="color:red"><b><u>Roll</u></b></h4>
+					{% for rolls in roll_number %}
+					<p>{{rolls}}</p>{% endfor %}</div>
+					
+					<div class="col-lg-2"><h4 style="color:red"><b><u>Reason to join</u></b></h4>
+					{% for infos in info %}
+					<p>{{infos}}</p>{% endfor %}</div>
+					
+					<div class="col-lg-2"><h4 style="color:red"><b><u>Email</u></b></h4>
+					{% for emails in email %}
+					<p>{{emails}}</p>{% endfor %}</div>
+					
+					<div class="col-lg-1"><h4 style="color:red"><b><u>Phone</u></b></h4>
+					{% for phones in phone %}
+					<p>{{phones}}</p>{% endfor %}</div>
+					
+					<div class="col-lg-1"><h4 style="color:red"><b><u>Approval</u></b></h4>
+					
+					<form action="" method="post">
+                        {% csrf_token %}
+					
+					<tr>
+					{% if approval.0 is 0 %}
+					 
+                                
+                                <td>
+                                    
+                                    <input type="checkbox" name="approval" value="{{roll_number.0}}" id="id_approval"  autocomplete="off" /></td>
+                                
+                    
+					{% endif %}	
+							
+							</tr>
+							<tr>
+					{% if approval.1 is 0 %}
+					 
+                                
+                                <td>
+                                    
+                                    <input type="checkbox" name="approval" value="{{roll_number.1}}" id="id_approval"  autocomplete="off" /></td>
+                                
+                    
+					{% endif %}	
+							
+							</tr>
+							<tr>
+					{% if approval.2 is 0 %}
+					 
+                                
+                                <td>
+                                    
+                                    <input type="checkbox" name="approval" value="{{roll_number.2}}" id="id_approval"  autocomplete="off" /></td>
+                                
+                    
+					{% endif %}	
+							
+							</tr>
+							<tr>
+					{% if approval.3 is 0 %}
+					 
+                                
+                                <td>
+                                    
+                                    <input type="checkbox" name="approval" value="{{roll_number.3}}" id="id_approval"  autocomplete="off" /></td>
+                                
+                    
+					{% endif %}	
+							
+							</tr>
+							<tr>
+                                <td></td>
+                                <td><input type="submit"  value="Approve"></td>
+                            </tr></form>
+							
+							</div>
+					
+					
+					
+					<div class="col-lg-3"></div></div></div>
+					
+		<hr><br>
+				<h3 style="color:blue">Approved Requests:</h3><br>
+            <div class="container-fluid"  style="background-color:#383a3d">   
+			<div class="col-lg-12"><div class="col-lg-1"></div>
+			
+                    <div class="col-lg-1"><h4 style="color:red;padding-left:35px;"><b><u>Name</u></b></h4>
+					{% for names in name_n %}
+					<p>{{forloop.counter}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{names}}</p>{% endfor %}</div>
+					
+					<div class="col-lg-1"><h4 style="color:red"><b><u>Branch</u></b></h4>
+					{% for branches in branch_n %}
+					<p>{{branches}}</p>{% endfor %}</div>
+					
+					<div class="col-lg-1"><h4 style="color:red"><b><u>DOB</u></b></h4>
+					{% for dob in date_n %}
+					<p>{{dob}}</p>{% endfor %}</div>
+					
+					<div class="col-lg-1"><h4 style="color:red"><b><u>Roll</u></b></h4>
+					{% for rolls in roll_number_n %}
+					<p>{{rolls}}</p>{% endfor %}</div>
+					
+					<div class="col-lg-2"><h4 style="color:red"><b><u>Reason to join</u></b></h4>
+					{% for infos in info_n %}
+					<p>{{infos}}</p>{% endfor %}</div>
+					
+					<div class="col-lg-2"><h4 style="color:red"><b><u>Email</u></b></h4>
+					{% for emails in email_n %}
+					<p>{{emails}}</p>{% endfor %}</div>
+					
+					<div class="col-lg-1"><h4 style="color:red"><b><u>Phone</u></b></h4>
+					{% for phones in phone_n %}
+					<p>{{phones}}</p>{% endfor %}</div>
+					
+					<div class="col-lg-1"><h4 style="color:red"><b><u>Approval</u></b></h4>
+					{% for phones in phone_n %}
+					<p><button type="button" class="btn btn-danger">Approved</button></p>{% endfor %}	
+							</div>
+					
+					
+					
+					<div class="col-lg-3"></div></div></div>			
+					
+					
+					
+					
+					
+
+            </div><br><br><br><br><br><br><br>
+			<center><a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">MENU</a>	</center>
+			</div></div>
+			
+			<!-- Bootstrap core JavaScript -->
+    <script src="{%static 'Portalapp/vendor/jquery/jquery.min.js' %}" ></script>
+    <script src="{% static 'Portalapp/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script></div>
+
+</body>
+
+</html>
