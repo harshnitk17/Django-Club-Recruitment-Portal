@@ -1,7 +1,7 @@
 from django import forms
 from django.core.exceptions import ValidationError
 from django.db import models
-from .models import Clubinfo,form
+from .models import Clubinfo,form,admin,form2
 
 class ApplicationForm(forms.Form):
     name = forms.CharField(max_length=100)
@@ -12,6 +12,7 @@ class ApplicationForm(forms.Form):
     email= forms.EmailField()
     phone= forms.CharField(max_length=100)
     address= forms.CharField(max_length=1000)
+    club=forms.CharField(max_length=100)
 	
     def save(self):
         new_entry = form.objects.create(
@@ -23,6 +24,7 @@ class ApplicationForm(forms.Form):
 		    email = self.cleaned_data['email'],
 		    phone = self.cleaned_data['phone'],
 		    address = self.cleaned_data['address'],
+            club=self.cleaned_data['club'],
 			)
         return new_entry
 	
@@ -77,4 +79,16 @@ class ApplicationForm(forms.Form):
         return phone
 	
 	
-    
+class AdminForm(forms.Form):
+    club_name = forms.CharField(max_length=100)
+    user_name = forms.CharField(max_length=100)
+    password = forms.CharField(max_length=100)  
+	
+class form21(forms.Form):
+    approval = forms.IntegerField()
+	
+    def save(self):
+        new_entry = form2.objects.create(
+            approval = self.cleaned_data['approval'],
+        )
+        return new_entry
