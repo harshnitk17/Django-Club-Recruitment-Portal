@@ -82,7 +82,10 @@ class ApplicationForm(forms.Form):
 class AdminForm(forms.Form):
     club_name = forms.CharField(max_length=100)
     user_name = forms.CharField(max_length=100)
-    password = forms.CharField(max_length=100)  
+    password = forms.CharField(max_length=100) 
+
+class GuestForm(forms.Form):
+    club_name = forms.CharField(max_length=100)  
 	
 class form21(forms.Form):
     approval = forms.IntegerField()

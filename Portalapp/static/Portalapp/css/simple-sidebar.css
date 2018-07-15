@@ -44,7 +44,6 @@ body {
 
 #mainhead{
   width: 100%;
-  height: 12vw;
   background-color: rgb(151, 2, 2);
   font-family: 'bnr';
   text-align: center;
@@ -61,6 +60,8 @@ body {
 #detailp{
   font-size: 150%;
   font-family: 'detail';
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 #detailp:hover{
@@ -170,6 +171,11 @@ body {
   font-size: 120%;
 }
 
+#fontad{
+  font-family: 'detail';
+  font-size: 300;
+}
+
 #clubapply:hover{
   color: #ffffff;
   transition: all 1s ease-in-out;
@@ -215,13 +221,13 @@ body {
 }
 
 #wrapper.toggled #sidebar-wrapper {
-  width: 40vw;
+  width: 70vw;
 }
 
 #page-content-wrapper {
   width: 100%;
   position: absolute;
-  padding: 15px;
+  padding: 5px;
 }
 
 #wrapper.toggled #page-content-wrapper {
@@ -244,7 +250,7 @@ body {
 /* Sidebar Styles */
 
 #sidetitle {
-  font-size: 125%; 
+  font-size: 100; 
 }
 
 #posd{

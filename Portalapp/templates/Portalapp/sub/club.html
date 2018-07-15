@@ -26,7 +26,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <style>
 input,textarea {
-    width: 150%;
+    width: 100%;
 	padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
@@ -41,6 +41,70 @@ input:focus {
 }
 #one:hover {
 background-color: lightblue;
+}
+
+.responsive {
+    width: 17vw;
+    max-width: 180px;
+    height: auto;
+}
+
+
+
+* {
+    box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid rgb(218, 215, 215);
+    border-radius: 4px;
+    resize: vertical;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+input[type=submit] {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+.col-75 {
+    float: left;
+    width: 70%;
+    margin-top: 6px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+@media screen and (max-width: 600px) {
+    .col-25, .col-75, input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+    }
 }
 
 </style>
@@ -60,6 +124,12 @@ background-color: lightblue;
                 </li>
                 <li>
                     <a href="{% url 'Portalapp:index' %}">Home</a>
+                </li>
+                <li>
+                    <a href="{% url 'Portalapp:Admin' %}">Admin Log In</a>
+                </li>
+                <li>
+                    <a href="{% url 'Portalapp:guest' %}">Guest Log In</a>
                 </li>
                 <li>
                     <a href="{% url 'Portalapp:ieee' %}">IEEE</a>
@@ -86,13 +156,13 @@ background-color: lightblue;
             <div class="container-fluid">
 			<!-- club information will go here -->
 			
-            <h1 id="headingtextclub"><img src="{{image_url}}" class="img-responsive" alt="Club logo" height="180" width="180" style="float:left;border-radius:50%;margin-right:40px"> {{club}}</h1>
+            <h1 id="headingtextclub"><img src="{{image_url}}" class="responsive" alt="Club logo" style="float:left;border-radius:50%;margin-right:40px"> {{club}}</h1>
             <br><br>
                 <hr>
                 <p id="detailpclub" >{{Clubinformation}}</p>
                 <center><a href="#headingtext" class="btn btn-secondary" id="clubapply"><strong>APPLY</strong></a>	</center>
                 <br>
-                <center><a href="approved.html" class="btn btn-secondary" id="clubapply"><strong>Check for Approved Submissions</strong></a>	</center>
+                <center><a href="{% url 'Portalapp:guest' %}" class="btn btn-secondary" id="clubapply"><strong>Check for Approved Submissions</strong></a>	</center>
 
 
             </div>
@@ -181,7 +251,7 @@ background-color: lightblue;
                                 <th><label for="id_info">Why do you want to join the club? [List your achievements and relevant details]</label></th>
                                 <td>
                                     
-                                    <textarea type="text" name="info" required maxlength="1000" id="id_info" autocomplete="off"></textarea>
+                                    <textarea type="text" name="info" required maxlength="1000" id="id_info" autocomplete="off" height=250px></textarea>
                                 </td>
                             </tr>
                             <tr>
@@ -191,12 +261,13 @@ background-color: lightblue;
                         </table>
                     </form><br><br>
                         <center><a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">MENU</a>	</center>
-                        </div>
+                        
+                    <br></div>
                         
                         
-                        <div class="col-lg-3"></div>
+                        <div class="col-lg-3"></div><br>
                         </div>
-                        </div>
+                        </div><br>
                         </div>
                         
 		

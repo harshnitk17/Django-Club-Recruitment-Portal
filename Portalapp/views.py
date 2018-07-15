@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.template import loader
 
 from .models import Clubinfo,form,admin,form2
-from .forms import ApplicationForm,AdminForm,form21
+from .forms import ApplicationForm,AdminForm,form21,GuestForm
 
 
 
@@ -313,6 +313,7 @@ def adminsite_iste(request):
 
     context = {'club_name':club_name,'name':names,'branch':branch,'roll_number':roll_number,'date':date,'info':info,'email':email,'phone':phone,'approval':approval,'name_n':names_n,'branch_n':branch_n,'roll_number_n':roll_number_n,'date_n':date_n,'info_n':info_n,'email_n':email_n,'phone_n':phone_n,}
     return HttpResponse(template.render(context, request))
+
 def approval_ieee(request):
     roll_number=form2.objects.values_list('approval', flat=True)
     for i in roll_number:
@@ -355,3 +356,120 @@ def approval_rotaract(request):
         q.approval=1
         q.save()
     return redirect('Portalapp:adminsite_rotaract')
+
+def guest(request):
+    error=""
+    if request.POST:
+        f=GuestForm(request.POST)
+        if f.is_valid():
+            q= get_object_or_404(admin, club_name=f.cleaned_data['club_name'])
+            if f.cleaned_data['club_name']=="IEEE":
+                return HttpResponseRedirect(reverse('Portalapp:guest_ieee'))
+            elif f.cleaned_data['club_name']=="IET":
+                return HttpResponseRedirect(reverse('Portalapp:guest_iet'))
+            elif f.cleaned_data['club_name']=="IE":
+                return HttpResponseRedirect(reverse('Portalapp:guest_ie'))
+            elif f.cleaned_data['club_name']=="ACM":
+                return HttpResponseRedirect(reverse('Portalapp:guest_acm'))
+            elif f.cleaned_data['club_name']=="ROTARACT":
+                return HttpResponseRedirect(reverse('Portalapp:guest_rotaract'))
+            elif f.cleaned_data['club_name']=="ISTE":
+                return HttpResponseRedirect(reverse('Portalapp:guest_iste'))
+    else:
+        f=GuestForm()
+    template = loader.get_template('Portalapp/sub/guest.html')
+    context = {'error':error,'form':f,}
+    return HttpResponse(template.render(context, request))
+
+
+def guest_ieee(request):
+    template = loader.get_template('Portalapp/sub/approved.html')
+    club_name="IEEE"
+    names_n=form.objects.values_list('name', flat=True).filter(club=club_name,approval=True)
+    branch_n=form.objects.values_list('branch', flat=True).filter(club=club_name,approval=True)
+    roll_number_n=form.objects.values_list('roll_number', flat=True).filter(club=club_name,approval=True)
+    date_n=form.objects.values_list('date', flat=True).filter(club=club_name,approval=True)
+    info_n=form.objects.values_list('info', flat=True).filter(club=club_name,approval=True)
+    email_n=form.objects.values_list('email', flat=True).filter(club=club_name,approval=True)
+    phone_n=form.objects.values_list('phone', flat=True).filter(club=club_name,approval=True)
+    approval=form.objects.values_list('approval', flat=True).filter(club=club_name,approval=False)
+
+    context = {'approval':approval,'name_n':names_n,'branch_n':branch_n,'roll_number_n':roll_number_n,'date_n':date_n,'info_n':info_n,'email_n':email_n,'phone_n':phone_n,}
+    return HttpResponse(template.render(context, request))
+
+def guest_ie(request):
+    template = loader.get_template('Portalapp/sub/approved.html')
+    club_name="IE"
+    names_n=form.objects.values_list('name', flat=True).filter(club=club_name,approval=True)
+    branch_n=form.objects.values_list('branch', flat=True).filter(club=club_name,approval=True)
+    roll_number_n=form.objects.values_list('roll_number', flat=True).filter(club=club_name,approval=True)
+    date_n=form.objects.values_list('date', flat=True).filter(club=club_name,approval=True)
+    info_n=form.objects.values_list('info', flat=True).filter(club=club_name,approval=True)
+    email_n=form.objects.values_list('email', flat=True).filter(club=club_name,approval=True)
+    phone_n=form.objects.values_list('phone', flat=True).filter(club=club_name,approval=True)
+    approval=form.objects.values_list('approval', flat=True).filter(club=club_name,approval=False)
+
+    context = {'approval':approval,'name_n':names_n,'branch_n':branch_n,'roll_number_n':roll_number_n,'date_n':date_n,'info_n':info_n,'email_n':email_n,'phone_n':phone_n,}
+    return HttpResponse(template.render(context, request))
+
+def guest_iet(request):
+    template = loader.get_template('Portalapp/sub/approved.html')
+    club_name="IET"
+    names_n=form.objects.values_list('name', flat=True).filter(club=club_name,approval=True)
+    branch_n=form.objects.values_list('branch', flat=True).filter(club=club_name,approval=True)
+    roll_number_n=form.objects.values_list('roll_number', flat=True).filter(club=club_name,approval=True)
+    date_n=form.objects.values_list('date', flat=True).filter(club=club_name,approval=True)
+    info_n=form.objects.values_list('info', flat=True).filter(club=club_name,approval=True)
+    email_n=form.objects.values_list('email', flat=True).filter(club=club_name,approval=True)
+    phone_n=form.objects.values_list('phone', flat=True).filter(club=club_name,approval=True)
+    approval=form.objects.values_list('approval', flat=True).filter(club=club_name,approval=False)
+
+    context = {'approval':approval,'name_n':names_n,'branch_n':branch_n,'roll_number_n':roll_number_n,'date_n':date_n,'info_n':info_n,'email_n':email_n,'phone_n':phone_n,}
+    return HttpResponse(template.render(context, request))
+
+def guest_iste(request):
+    template = loader.get_template('Portalapp/sub/approved.html')
+    club_name="ISTE"
+    names_n=form.objects.values_list('name', flat=True).filter(club=club_name,approval=True)
+    branch_n=form.objects.values_list('branch', flat=True).filter(club=club_name,approval=True)
+    roll_number_n=form.objects.values_list('roll_number', flat=True).filter(club=club_name,approval=True)
+    date_n=form.objects.values_list('date', flat=True).filter(club=club_name,approval=True)
+    info_n=form.objects.values_list('info', flat=True).filter(club=club_name,approval=True)
+    email_n=form.objects.values_list('email', flat=True).filter(club=club_name,approval=True)
+    phone_n=form.objects.values_list('phone', flat=True).filter(club=club_name,approval=True)
+    approval=form.objects.values_list('approval', flat=True).filter(club=club_name,approval=False)
+
+    context = {'approval':approval,'name_n':names_n,'branch_n':branch_n,'roll_number_n':roll_number_n,'date_n':date_n,'info_n':info_n,'email_n':email_n,'phone_n':phone_n,}
+    return HttpResponse(template.render(context, request))
+
+def guest_rotaract(request):
+    template = loader.get_template('Portalapp/sub/approved.html')
+    club_name="ROTARACT"
+    names_n=form.objects.values_list('name', flat=True).filter(club=club_name,approval=True)
+    branch_n=form.objects.values_list('branch', flat=True).filter(club=club_name,approval=True)
+    roll_number_n=form.objects.values_list('roll_number', flat=True).filter(club=club_name,approval=True)
+    date_n=form.objects.values_list('date', flat=True).filter(club=club_name,approval=True)
+    info_n=form.objects.values_list('info', flat=True).filter(club=club_name,approval=True)
+    email_n=form.objects.values_list('email', flat=True).filter(club=club_name,approval=True)
+    phone_n=form.objects.values_list('phone', flat=True).filter(club=club_name,approval=True)
+    approval=form.objects.values_list('approval', flat=True).filter(club=club_name,approval=False)
+
+    context = {'approval':approval,'name_n':names_n,'branch_n':branch_n,'roll_number_n':roll_number_n,'date_n':date_n,'info_n':info_n,'email_n':email_n,'phone_n':phone_n,}
+    return HttpResponse(template.render(context, request))
+
+def guest_acm(request):
+    template = loader.get_template('Portalapp/sub/approved.html')
+    club_name="ACM"
+    names_n=form.objects.values_list('name', flat=True).filter(club=club_name,approval=True)
+    branch_n=form.objects.values_list('branch', flat=True).filter(club=club_name,approval=True)
+    roll_number_n=form.objects.values_list('roll_number', flat=True).filter(club=club_name,approval=True)
+    date_n=form.objects.values_list('date', flat=True).filter(club=club_name,approval=True)
+    info_n=form.objects.values_list('info', flat=True).filter(club=club_name,approval=True)
+    email_n=form.objects.values_list('email', flat=True).filter(club=club_name,approval=True)
+    phone_n=form.objects.values_list('phone', flat=True).filter(club=club_name,approval=True)
+    approval=form.objects.values_list('approval', flat=True).filter(club=club_name,approval=False)
+
+    context = {'approval':approval,'name_n':names_n,'branch_n':branch_n,'roll_number_n':roll_number_n,'date_n':date_n,'info_n':info_n,'email_n':email_n,'phone_n':phone_n,}
+    return HttpResponse(template.render(context, request))
+
+	

@@ -45,6 +45,12 @@
                     <a href="{% url 'Portalapp:index' %}">Home</a>
                 </li>
                 <li>
+                    <a href="{% url 'Portalapp:Admin' %}">Admin Log In</a>
+                </li>
+                <li>
+                    <a href="{% url 'Portalapp:guest' %}">Guest Log In</a>
+                </li>
+                <li>
                     <a href="{% url 'Portalapp:ieee' %}">IEEE</a>
                 </li>
                 <li>
@@ -95,8 +101,9 @@
                 <hr>
                         <div id="gi">
                    <div id="appear"> <p id="gitext">GET INVOLVED</p><a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">APPLY NOW</a>
-                </div></div><br>
-				<center><a href="{% url 'Portalapp:Admin' %}" class="btn btn-secondary" id="menu-toggle">Club administrators login here</a>	</center>
+                </div></div><br><hr>
+                <center><a href="{% url 'Portalapp:Admin' %}" class="btn btn-secondary" id="menu-toggle">Admin Log In</a>	</center><br>
+                <center><a href="{% url 'Portalapp:guest' %}" class="btn btn-secondary" id="menu-toggle">Guest Log In</a>	</center>
                 <hr>
                 <div id="cred" ><p>Akash Nair  •  Harsh Prakash Gupta  •  2018  •  IEEE<p></div>
             </center>

@@ -8,6 +8,13 @@ app_name = 'Portalapp'
 urlpatterns = [
 
     path('', views.index, name='index'),
+	path('guest/', views.guest, name='guest'),
+	path('guest_ieee/', views.guest_ieee, name='guest_ieee'),
+	path('guest_ie/', views.guest_ie, name='guest_ie'),
+	path('guest_iet/', views.guest_iet, name='guest_iet'),
+	path('guest_acm/', views.guest_acm, name='guest_acm'),
+	path('guest_rotaract/', views.guest_rotaract, name='guest_rotaract'),
+	path('guest_iste/', views.guest_iste, name='guest_iste'),
 	path('ieee/', views.ieee, name='ieee'),
 	path('acm/', views.acm, name='acm'),
 	path('rotaract/', views.rotaract, name='rotaract'),
